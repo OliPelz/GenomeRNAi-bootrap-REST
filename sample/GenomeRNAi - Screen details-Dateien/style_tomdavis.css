@@ -1,0 +1,1453 @@
+/*
+
+  what to edit:
+
+  -replace /images/  -> images/  in the whole file
+  -replace #search_organism  -> #search_gene in the whole file   
+  - .results ul.action {   display:none wieder weg
+  - .results ul.action {  hinzu : text-align: center;width: 150px;
+  - einfuegen :  .results .content {float: left;width: 600px;}
+  - einfuegen: .results ul.action { float: right;
+  - replace:
+  alle:
+
+#page.gene-details.with-sub #main div .selected to #page.gene-details.with-sub #main div .selected2
+
+#page.gene-details.with-sub #main .selected to #page.gene-details.with-sub #main .selected2
+
+#page #sub li.selected a to #page #sub li.selected1 a
+
+nein das hier nicht:   #page.gene-details.with-sub #main div table --> display : none wegnehmen
+
+
+glpbal ersetzen: gene-details  -->  reagent-details
+
+  -einfuegen ganz oben:
+
+  //the design for the pager to scroll to big tables which have been split on several pages
+  .pager {
+            padding: 0 20px 5px 20px;
+            width:288px;
+            height:166px;
+            }
+            .collapsible a.collapsed {
+            margin: 2px;
+            outline: 0;
+            }
+
+            .collapsible a.expanded {
+            margin: 2px;
+            outline: 0;
+            }
+//highlight the matches of the phenotype search results
+html body#page.results div#wrap div#contentZone table.mainTable tbody tr.matched {
+border: 1px solid #CCE8BD;
+}
+html body#page.results div#wrap div#contentZone table.mainTable tbody tr.phenotype-table td table.grid tbody tr td.matched  {
+background: none repeat scroll 0 0 #E5F3DC;
+}
+html body#page.results div#wrap div#contentZone table.mainTable tbody tr.phenotype-table td table.grid tbody tr td.collapsible {
+    border: 1px solid #CCE8BD;
+}
+header.home a.home header.browse a.browse header.help a.help header.about a.about header.glossary a.glossary header.other_resources a.other_resources{
+    background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    color: #3F7D24s;
+}
+*/
+
+
+/*the design for the pager to scroll to big tables which have been split on several pages */
+ .pager {
+            padding: 0 20px 5px 20px;
+            width:288px;
+            height:166px;
+            }
+            .collapsible a.collapsed {
+            margin: 2px;
+            outline: 0;
+            }
+
+            .collapsible a.expanded {
+            margin: 2px;
+            outline: 0;
+            }
+/*highlight the matches of the phenotype search results */
+html body#page.results div#wrap div#contentZone table.mainTable tbody tr.phenotype-table td table.grid tbody tr td.matched  {
+background: none repeat scroll 0 0 #E5F3DC;            
+}
+html body#page.results div#wrap div#contentZone table.mainTable tbody tr.phenotype-table td table.grid tbody tr td.collapsible {
+    border: 1px solid #CCE8BD;
+}
+header.home a.home header.browse a.browse header.help a.help header.about a.about header.glossary a.glossary header.other_resources a.other_resources{
+    background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    color: #3F7D24;
+}
+html body#page.gene-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p.content {
+	float: left;
+    	width: 500px;
+}
+
+html body#page.gene-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td ul.action li a {
+    background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    border-radius: 4px 4px 4px 4px;
+    color: #3F7D24;
+    display: block;
+    padding: 6px;
+}
+
+html body#page.gene-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td ul.action {
+	float: right;
+    list-style: none outside none;
+    margin: 16px 30px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 150px;
+}
+html body#page.results div#wrap div#contentZone table.grid tbody tr td.matched {
+background: none repeat scroll 0 0 #E5F3DC;
+
+}
+html body#page.gene-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p a.showcellthsreport {
+	background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    border-radius: 4px 4px 4px 4px;
+    color: #3F7D24;
+    display: block;
+    padding: 6px;
+    width:150px;
+}
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p a.showcellhtsreport {
+      background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    border-radius: 4px 4px 4px 4px;
+    color: #3F7D24;
+    display: block;
+    padding: 6px;
+    width:150px;
+}
+html body#page.gene-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td span.experimentDetails {
+     float: left;
+     width: 500px;
+}
+
+html body#page.gene-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p.cellhtsButtons {
+    float:right;
+    padding: 6px;
+    width:150px;
+}
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td span.experimentDetails {
+      float: left;
+     width: 500px;
+}
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p.cellhtsButtons {
+     float:right;
+    padding: 6px;
+    width:160px;
+}
+#page.download .all {
+    float: right;
+    width: 350px;
+}
+#page.download .format {
+    float: left;
+    width: 550px;
+}
+#page.download form {
+    padding-bottom: 0;
+    padding-top: 0;
+}
+.download form {
+    background: none repeat scroll 0 0 #E9EBE8;
+    border: 1px solid #DBE0DA;
+    border-radius: 5px 5px 5px 5px;
+    margin: 8px 0 14px;
+    padding: 8px;
+    position: relative;
+}
+#page.download form label {
+    display: block;
+}
+style.css (line 782)
+form label {
+    display: block;
+    font-size: 13px;
+    padding: 0 0 2px;
+}
+#page.download form label {
+    display: block;
+}
+form label {
+    display: block;
+    font-size: 13px;
+    padding: 0 0 2px;
+}
+#page.download form .submit {
+    left: 0;
+    position: relative;
+    top: 2px;
+}
+#home form input.submit, .download form input.submit {
+    bottom: 8px;
+    position: absolute;
+    right: 8px;
+    width: 50px;
+}
+.button, form input.submit {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 3px 3px 3px #CCCCCC;
+    color: #333333;
+    font-family: "Trade Gothic Next W01";
+    font-size: 12px;
+    padding: 4px;
+}
+form input, form select {
+    margin: 4px 0 5px;
+    padding: 3px;
+    width: 69%;
+}
+#page.about #main a img, #page.about #footer a img {
+    border: 0 none;
+}
+#page.about #main p img {
+    height: 56px;
+    margin: 0 12px;
+}
+#page.about #main a img, #page.about #footer a img {
+    border: 0 none;
+}
+#page.about #footer img {
+    height: 35px;
+    margin: 0 12px;
+}
+
+html body#page.reagent-details div#wrap div#content div#main div.genes h3.homologHeader {
+
+    background: none;
+    background: none;
+    padding-left: 0px;
+}
+
+ html body#home div#wrap div#content div#newsletter form#newsletter input#newsletterMail.submit {
+     float: left;
+    margin-right: 4px;
+    width: 240px;
+ }
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p.cellhtsButtons a {
+    background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    border-radius: 4px 4px 4px 4px;
+    color: #3F7D24;
+    display: block;
+    padding: 6px;
+}
+
+.all_screen_title {
+    font-size: 16px;
+    padding: 6px 0;
+    float:left;
+    margin:0px;
+    margin-bottom: 10px;
+    color: #5CB534;
+    width: 100%;
+}
+.all_screen_title:hover{
+    color:black;
+    cursor:pointer;
+}
+
+.pheno_title {
+    font-size: 16px;
+    padding: 6px 0;
+    float:left;
+    margin:0px;
+    margin-bottom: 10px;
+}
+
+.all_screen_author {
+    font-size: 12px;
+    float:left;
+}
+
+/*----paste toms css here: ---*/
+body {
+	font-family: Arial;
+	font-size: 14px;
+	color: #444;
+	margin: 0;
+	padding: 0;
+	}
+
+a {
+	color: #5CB534;
+	text-decoration: none;
+	}
+
+a:hover {
+	color: #000;
+	}
+
+table,
+tr,
+td,
+tbody {
+	padding: 0;
+	margin: 0;
+    vertical-align: top;
+	}
+	th {
+		text-align: left;
+		font-weight: normal;
+        vertical-align: top;
+		}
+	td {
+		padding: 8px 0;
+        vertical-align: top;
+		}
+
+h2,
+h3,
+#sub li {
+	font-family: "Trade Gothic Next W01";
+	font-weight: normal;
+	font-size: 20px;
+	}
+
+h2 {
+	color: #4D6445;
+	}
+
+h3 {
+	color: #A6B1A2;
+	padding: 0 0 6px 0;
+	margin: 0;
+	}
+
+h5      {
+	color: #A6B1A2;
+	padding: 0 0 6px 0;
+	margin: 0;
+	}
+            
+
+
+form {
+	margin: 0;
+	padding: 0;
+	}
+	form label {
+		padding: 0 0 2px 0;
+		display: block;
+		font-size: 13px;
+		}
+	form span {
+		color: #888;
+		font-size: 13px;
+		}
+	form input,
+	form select {
+		width: 69%;
+		margin: 4px 0 5px 0;
+		padding: 3px;
+		}
+	form select {
+		padding: 2px 0 1px 0;
+		margin: 2px 0 12px 0;
+		font-size: 13px;
+		font-family: Arial;
+		color: #333;
+		}
+		form select option {
+			padding: 2px;
+			font-size: 13px;
+			}
+	.button,
+	form input.submit {
+		background: #fff;
+		font-family: "Trade Gothic Next W01";
+		font-size: 12px;
+		color: #333;
+		border: 1px solid #bbb;
+		padding: 4px;
+		-moz-box-shadow: 3px 3px 3px #ccc;
+		-webkit-box-shadow: 3px 3px 3px #ccc;
+		box-shadow: 3px 3px 3px #ccc;
+		border-radius: 4px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		}
+	.button:hover,
+	form input.submit:hover {
+		cursor: pointer;
+		background: #5CB534;
+		border: 1px solid #5CB534;
+		color: #fff;
+		}
+	form .checkbox {
+		padding: 2px 0;
+		margin: 2px 0 0 0;
+		border: 0;
+		}
+		form .checkbox label {
+			display: inline;
+			font-size: 12px;
+			color: #777;
+			}
+		form .checkbox input {
+			width: auto;
+			margin: 0;
+			}
+
+
+.cB {
+	clear: both;
+	float: none;
+	}
+
+#wrap {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	background: url(images/background.jpg) no-repeat right top;
+	}
+	#wrap #header {
+		margin: 0 0 10px 0;
+		height: 220px;
+		}
+	#wrap h1 a {
+		color: #ff6633;
+		font-weight: normal;
+		font-size: 24px;
+		background: url(images/logo.genomernai.gif) no-repeat 0 19px;
+		width: 254px;
+		height: 190px;
+		text-indent: -1000px;
+		margin: 0;
+		display: block;
+		}
+	#wrap p {
+		line-height: 135%;
+		}
+	#wrap ul#menu {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		right: 0;
+		top: 90px;
+		}
+		#menu li {
+			margin: 2px 0;
+			padding: 2px 10px 2px 0;
+			float: left;
+			font-family: "Trade Gothic W01 Light";
+			font-size: 15px;
+			}
+			#menu li a {
+				padding: 6px;
+				color: #444;
+				text-decoration: none;
+				border: 1px solid transparent;
+				border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				}
+			#menu li a:hover {
+				color: #fff;
+				background: #2A5518;
+				border: 1px solid #2A5518;
+				}
+			#menu li.external a {
+				color: #aaa;
+				}
+			#menu li.external a:hover {
+				color: #fff;
+				}
+		#menu li.selected a {
+			color: #3F7D24;
+			border: 1px solid #CCE8BD;
+			background: #E5F3DC;
+			}
+
+#home {
+	position: relative;
+	}
+	.searchFrame {
+		margin: 0;
+		padding: 0;
+		background: #E9EBE8;
+		border: 1px solid #DBE0DA;
+		padding: 8px;
+		margin: 8px 0 14px 0;
+		position: relative;
+		border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		font-size: 13px;
+		}
+		#home form input.submit {
+			position: absolute;
+			right: 8px;
+			bottom: 8px;
+			width: 50px;
+			}
+
+	#home h2,
+	#home h3 {
+		font-family: "Trade Gothic W01 Light";
+		font-size: 20px;
+		padding: 0 0 12px 0;
+		margin: 0;
+		line-height: 140%;
+		}
+	#home h2 {
+		padding: 0;
+		margin: 0;
+		}
+	#home #about,
+	#home #search,
+	#home #news,
+	#home #browse {
+		margin: 0 40px 0 0;
+		width: 280px;
+		float: left;
+		}
+	#searchSpanGene {
+		color: #888888;
+		width: 60%;
+		display: block;
+		position: absolute;		
+    	font-size: 13px;
+		}
+	#home #search {
+		min-height: 530px;
+		}
+		#geneTxt {			
+			border:1px solid #D3D3D3;
+			width: 253px;
+			height: 72px;
+			margin: 8px 0 12px 0;
+			padding: 3px;
+            resize:vertical;
+            font-family: Arial;
+            font-size:12px;
+			}
+		#home #search_gene input.submit {
+			display: block;
+			position: relative;
+			margin: 14px -8px 0 auto;
+			width: 48px;
+			}
+	#home #search .headings {
+		position: relative;
+		height: 28px;
+		}
+		#home #search .headings h2,
+		#home #search .headings h3 {
+			position: absolute;
+			top: 0;
+			}
+		#home #search .headings h2 {
+			left: 0;
+			}
+		#home #search .headings h3 {
+			text-align: right;
+			right: 0;
+			}
+
+
+	#home #browse {
+		margin: 0 0 20px 0;
+		font-size: 13px;
+		}
+		#home #browse div {
+			margin: 2px 0;
+			padding: 2px 0 4px 0;
+			color: #666;
+			border-bottom: 1px solid #ccc;
+			}
+		#home #browse .intro {
+			font-size: 16px;
+			margin: 0;
+			}
+		#home #browse .browse {
+			padding: 9px 0 20px 0;
+			}
+			#home #browse .browse .button {
+				background: #5CB534;
+				border: 1px solid #5CB534;
+				color: #fff;
+				}
+			#home #browse .browse .button:hover {
+				background: #2A5518;
+				border: 1px solid #2A5518;
+				color: #fff;
+				}
+	#home #news {
+		line-height: 130%;
+		}
+		#home #news span {
+			display: block;
+			font-size: 12px;
+			padding: 2px 0 0 0;
+			color: #999;
+            padding-bottom: 15px;
+            padding-right: 15px;
+			}
+		#home #news ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+			}
+			#home #news ul li {
+				margin: 8px 0;
+				padding: 0;
+				}
+	#home #newsletter {}
+		#home #newsletter form {
+			background: #F4F7F1;
+			border: none;
+			height: 35px;
+			margin: 0;
+			padding: 12px;
+			}
+			#home #newsletter form h3 {
+				float: left;
+				color: #666;
+				margin: 5px 40px 0 4px;
+				font-size: 17px;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				}
+			#home #newsletter form div {
+				margin: 8px 20px 0 0;
+				border-bottom: 0;
+				padding-bottom: 0;
+				height: 36px;
+				float: left;
+				}
+			#home #newsletter form input {
+				float: right;
+				width: 240px;
+				margin-right: 4px;
+				}
+				#home #newsletter form input.submit {
+					margin: 11px 0 0 20px;
+					width: 100px;
+					position: relative;
+					float: right;
+                    
+					}
+			#home #newsletter form input.default {
+				color: #666;
+				}
+
+#page {}
+	#page h3 {
+		font-size: 16px;
+		padding: 12px 0 0 0;
+		margin: 0;
+		}
+		#page h3 strong {
+			color: #666;
+			font-weight: normal;
+			}
+
+	/* page template variants with sub menu on left and content column on right */
+	#page.with-sub #sub {
+		float: left;
+		list-style: none;
+		margin: 0 0 10px 0;
+		padding: 0;
+		width: 190px;
+		margin: 10px 0 0 0;
+		}
+		#page #sub li {
+			padding: 0 0 4px 0;
+			}
+			#page #sub li.selected1 a {
+				color: #444;
+				}
+	#page.with-sub #main {
+		width: 760px;
+		float: right;
+		min-height: 350px;
+		font-size: 14px;
+		line-height: 138%;
+		}
+	#page.with-sub h2 {
+		color: #666;
+		border-bottom: 1px solid #ddd;
+		padding: 8px 0 8px 8px;
+		margin: 0 0 20px 0px;
+		background: #F4F7F1;
+		}
+	#page.with-sub h3 {
+		padding: 10px 0;
+		margin: 0 0 20px 200px;
+		color: #888;
+		font-size: 13px;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		}
+	#page.with-sub #content h3 {
+		margin: 0 0 5px 0;
+		}
+	#page.with-sub .text {
+		margin: 0 0 20px 200px;
+		}
+	#page.with-sub table {
+		margin: 0 0 30px 0;
+		max-width: 760px;
+		width: 760px;
+		}
+
+	#contentZone table,
+	#page table {
+		border-spacing: 0;
+		margin: 0 0 0 -12px;
+		width: 960px;
+		}
+                html body#page.download div#wrap div#content table#news_archive
+          {
+            border-right-width: 20px;
+            margin-right: 0;
+            padding-right: 20px;
+            width: 590px;
+          }
+            
+            .news_headline 
+            {
+            line-height:0px;
+            }
+            
+            .news_td
+            {
+            vertical-align: middle;      
+            }
+            .news_date
+            {
+             white-space:nowrap;       
+            }
+            
+            
+
+          
+                
+                
+	#contentZone table {
+		margin: 0;
+		}
+		#page tr:hover {
+			background: #f5f5f5;
+			}
+		#page tr.header:hover {
+			cursor: default;
+			background: transparent;
+			}
+		#page tr {}
+			#page tr th,
+			#page tr td {
+				margin: 0 12px 0 0;
+				padding: 8px 6px;                
+				}
+			#page tr th,
+			#page tr td.title {
+			    background-color: #F4F7F1;
+				text-align: left;
+				font-weight: normal;
+				border-bottom: 1px solid #ccc;
+				color: #888;
+				font-size: 12px;
+				padding-right: 20px;
+			}
+				#page tr th img {
+					margin: 0 0 0 4px;
+					}
+			#page tr td.title {
+				border-bottom: 1px solid #e5e5e5;
+				}
+			#page tr td {
+				border-bottom: 1px solid #e5e5e5;
+				font-size: 13px;
+				/*vertical-align: text-top;   */
+				}
+				#page tr td .title a:hover {
+					color: #5CB534;
+					}
+				#page tr img {
+					border: 0;
+					}
+		#page tbody tr.selected {
+			background: #eee;
+				}
+		#page tr:hover {
+			background: transparent;
+				}
+		#page table.horiz {}
+			#page table.horiz td {}
+			#page table.horiz tr td.title {
+				border-bottom: 1px solid #e5e5e5;
+				width: 150px;
+				max-width: 150px;
+				}
+		#page.reagent-details.with-sub #main div {}
+			#page.reagent-details.with-sub #main div h3 {
+				background: url(images/arrow.fold.gif) 0 15px no-repeat;
+				padding: 10px 0 10px 15px;
+				}
+			#page.reagent-details.with-sub #main div h3:hover {
+				cursor: pointer;
+				color: #333;
+				}
+            #page.reagent-details.with-sub #main div table.hide {
+			    display: none;
+				}
+			#page.reagent-details.with-sub #main div .selected2 {}
+				#page.reagent-details.with-sub #main .selected2 h3 {
+					background: url(images/arrow.fold.down.gif) 0 15px no-repeat;
+					color: #444;
+					}
+				#page.reagent-details.with-sub #main div .selected2 h3:hover {
+					color: #888;
+					cursor: text;
+					}
+				#page.reagent-details.with-sub #main div .selected2 table {
+					display: block;
+					}
+
+
+		/* generic search results page styles */
+		.results {}
+			.results th .title {
+				font-size: 12px;
+				}
+			.results .text {}
+				.results .text .action {}
+					.results ul.action {
+						text-align: center;width: 150px;
+						margin: 16px 30px 0 0;
+						padding: 0;
+						list-style: none;
+						text-align: center;
+                        float: right;
+						}
+						.results ul.action li {
+							margin: 4px 0;
+							font-size: 13px;
+							}
+							.results ul.action li a {
+								display: block;
+								color: #444;
+								border-radius: 4px;
+								-webkit-border-radius: 4px;
+								-moz-border-radius: 4px;
+								padding: 6px;
+								color: #3F7D24;
+								border: 1px solid #CCE8BD;
+								background: #E5F3DC;
+								}
+							.results ul.action li a:hover {
+								color: #fff;
+								background: #2A5518;
+								border: 1px solid #2A5518;
+								}
+                            .results .content {float: left;width: 600px;}
+			.results div.title {
+				/*width: 544px;*/
+                color: #5CB534;
+                text-decoration: none;                
+				}
+				.results .title div {
+					font-size: 15px;
+					padding: 6px 0;
+					}
+				.results .title .authors {
+					font-size: 12px;
+					padding: 0;
+					}
+			.results .org {
+				width: 200px;
+				}
+			.results .assay {
+				width: 150px;
+				}
+			.results .bioModel {
+				width: 100px;
+				}
+			/* styles specific to phenotype results page */
+			.results.phenotype {}
+				.results.phenotype #wrap h3 {
+					padding-bottom: 20px;
+					}
+					.results.phenotype #wrap h3 span {
+						padding: 3px;
+						}
+				.results.phenotype .phenotypes-title {
+                    margin-bottom: 15px;
+                    margin-top: 15px;
+					
+					font-size: 11px;
+					font-family: "Trade Gothic Next W01";
+					text-transform: uppercase;
+					letter-spacing: 1px;
+					}
+					.results.phenotype .phenotypes-title span {
+						color: #999;
+						}
+				.results.phenotype .phenotypes {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					}
+					#page.results.phenotype #wrap h3 span {
+						display: inline;
+						color: #5CB534;
+						}
+					.results.phenotype .phenotypes li {
+						line-height: 160%;
+						margin: 8px 3px;
+						border: 1px solid #CCE8BD;
+						color: #999;
+						display: block;
+						}
+						.results.phenotype #wrap h3 span,
+						.results.phenotype .phenotypes li a.title {
+							margin: 0;
+							padding: 5px 8px;
+							display: block;
+							}
+						.results.phenotype .phenotypes li a.title:hover {
+							color: #666;
+							}
+						.results.phenotype .phenotypes li a.selected {
+							font-size: 15px;
+							color: #333;
+							padding: 8px;
+							}
+					.results.phenotype .phenotypes li.matched {
+						border: 1px solid #CCE8BD;
+						}
+						.results.phenotype #wrap h3 span,
+						.results.phenotype .phenotypes li.matched a.title {
+							background: #E5F3DC;
+							}
+						.results.phenotype .phenotypes li.matched a:hover {
+							color: #2A5518;
+							}
+					#page.results.phenotype .phenotypes table {
+						width: 700px;
+						min-width: 700px;
+						}
+
+					/*
+						styles for inset tables within phenotype results (mainly overrides to prevent parent styles being inherited
+					*/
+					.results.phenotype .phenotypes li .sub.pages {
+						float: none;
+						width: 100%;
+						}
+						.results.phenotype .phenotypes li .sub.pages ul {
+							margin: 0 8px 20px 8px;
+							}
+							.results.phenotype .phenotypes li .sub.pages ul li {
+								border: 0;
+								background: transparent;
+								}
+								.results.phenotype .phenotypes li .sub.pages ul li a,
+								.results.phenotype .phenotypes li .sub.pages ul li a:hover {
+									color: inherit;
+									}
+								.results.phenotype .phenotypes li .sub.pages ul li.selected a:hover {
+									color: #888;
+									}
+								.results.phenotype .phenotypes li .sub.pages ul li a:hover {
+									color: #fff;
+									}
+					#page.results.phenotype .phenotypes li table {
+						margin: 8px;
+						background: #fff;
+						}
+			.results form {
+				margin: 20px 0;
+				}
+				.results form .submit {
+					margin: 20px 0;
+					width: auto;
+					}
+				.results form #toggle.submit {
+					float: right;
+					}
+
+
+			/* glossary styles */
+			#page a.word {
+				color: #999;
+				}
+				#page a.word span {
+					color: #aaa;
+					font-weight: bold;
+					font-size: 11px;
+					}
+            /*------           */
+            /* some stuff we have to initalize after to make it work....overwrite */
+            #page a.word span.my_tooltip {
+                 color: #5CB534;
+            }
+			#page #tooltip {
+				padding: 8px 12px;
+				color: #3F7D24;
+				background: #E5F3DC url(images/tab_b.jpg) repeat-x;
+				border: 1px solid #CCE8BD;
+				border-bottom: 0;
+				border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				opacity: 1;
+				font-size: 12px;
+				text-align: left;
+				line-height: 138%;
+				max-width: 250px;
+			    }
+			#page #tooltip.ajax {
+				max-width: 650px;
+				}
+			.close {
+				display: block;
+				text-align: right;
+				}
+
+	/* sub menu (eg repeatable sort list) - not page sections */
+	#page .sub {
+		margin: 0;
+		text-align: right;
+		}
+		.sub ul {
+			list-style: none;
+			padding: 0 0 25px 0;
+			}
+			.sub ul li {
+				margin: 2px 0;
+				padding: 2px 4px 2px 0;
+				float: left;
+				font-family: "Trade Gothic Next W01";
+				font-size: 13px;
+				}
+				.sub ul li a {
+					padding: 6px;
+					color: #444;
+					border: 1px solid transparent;
+					border-radius: 4px;
+					-webkit-border-radius: 4px;
+					-moz-border-radius: 4px;
+					}
+				.sub ul li a:hover {
+					color: #fff;
+					background: #2A5518;
+					border: 1px solid #2A5518;
+					}
+			.sub ul li.label {
+				color: #888;
+				padding: 2px 12px 2px 0
+				}
+			.sub ul li.selected {}
+				.sub ul li.selected a {
+					color: #3F7D24;
+					border: 1px solid #CCE8BD;
+					background: #E5F3DC;
+					}
+	#page .pages.sub {
+		float: left;
+		width: 380px;
+		}
+	#page #sort.sub {
+		float: right;
+		width: 500px;
+		}
+
+
+
+
+#page.about {}
+	#page.about #sub {
+		width: 250px;
+		}
+	#page.about #main {
+		margin: 10px 0 0 0;
+		width: 650px;
+		float: left;
+		min-height: 350px;
+		font-size: 14px;
+		line-height: 138%;
+		}
+	#page.about #footer {
+		margin: 80px 0 20px 0;
+		color: #888;
+		}
+
+.paging_full_numbers {
+    height: 22px;
+    line-height: 22px;
+    /*width: 400px;   */
+}
+
+.dataTables_paginate {
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+}
+.paging_full_numbers span.paginate_button {
+    background-color: white;
+}
+.paging_full_numbers span.paginate_button {
+    border: 1px solid #AAAAAA;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    margin: 0 3px;
+    padding: 2px 5px;
+}
+span.paginate_active {
+    background-color: #DDDDDD;
+    border: 1px solid #AAAAAA;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    margin: 0 3px;
+    padding: 2px 5px;
+}
+
+/*hovering will be green */
+.paging_full_numbers:hover span.paginate_button:hover {
+    background-color: #E5F3DC;
+}
+
+.dataTables_length {
+    float:right;
+    padding-top:13px;
+}
+.dataTables_info {
+   float:right;
+   padding-top:13px;
+}
+
+.dataTables_filter {
+    float:left;
+    width:100%;
+    background: none repeat scroll 0 0 #F4F7F1;
+    border: medium none;
+    height: 35px;
+    margin: 0;
+    padding: 12px;
+    text-align: center;
+    /*text formatting*/
+    color: #666666;
+    font-size: 17px;
+    margin: 5px 40px 0 4px;
+}
+.dataTables_filter label {
+    display: block;
+    /*float: left;*/
+    padding-right: 10px;
+    white-space: nowrap;
+}
+
+thead tr.header {
+	text-align: center;
+}
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td p.content {
+    float: left;
+    width: 500px;
+}
+
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td ul.action {
+    float: right;
+    list-style: none outside none;
+    margin: 16px 30px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 150px;
+}
+html body#page.reagent-details div#wrap div#content div#main div.phenotypes table.tablesorter tbody tr.expand-child td ul.action li a {
+     background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    border-radius: 4px 4px 4px 4px;
+    color: #3F7D24;
+    display: block;
+    padding: 6px;
+}
+.pagelink_2_button {
+    float: right;
+    margin: 11px 0 0 20px;
+    position: relative;
+    width: 90px;
+    height: 17px;
+    margin-right: 4px;
+    bottom: 8px;
+    right: 8px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px 4px 4px 4px;
+    box-shadow: 3px 3px 3px #CCCCCC;
+    color: #333333;
+    font-family: "Trade Gothic Next W01";
+    font-size: 12px;
+    padding: 4px;
+    text-align: center;
+}
+.pagelink_2_button:hover {
+    cursor: pointer;
+	background: #5CB534;
+	border: 1px solid #5CB534;
+	color: #fff;
+}
+#nextRNAi-ref {
+    color: #888888;
+    font-size: 10px;
+    margin-top: 20px;
+}
+element.style {
+    display: block;
+    margin-bottom: 200px;
+}
+#contentZone {
+    margin-bottom: 100px;
+}
+#searchTermResults {
+    display: block;
+    float: left;
+    height: 50px;
+    width: 200px;
+
+
+}
+#searchTermResults h3{
+    padding-top: 0;
+}
+
+
+.results.phenotype #searchTerm{
+    padding-bottom: 0px;
+    padding-top: 0px;
+    margin-top: 3px;
+    float: left;
+    width:600px;
+}
+#searchHeader {
+    display: inline;
+    margin: 0 1em 0 1em;
+    width: 100%;
+
+}
+.hard_border {
+    height:2px;
+    border: 0 none;
+    color: #999999;
+    background-color: #999999;
+
+}
+.soft_border {
+    height:1px;
+    border: 0 none;
+    color: #E5E5E5;
+    background-color: #E5E5E5;
+
+}
+.results.phenotype tr td {
+    border-top: 1px solid #E5E5E5;
+}
+.datatable td {
+  overflow: hidden; /* this is what fixes the expansion */
+  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
+  white-space: nowrap;
+}
+.gbrowse {
+    padding-bottom: 20px;
+}
+
+div.bottom {
+  margin: 0 auto;
+  width: 800px;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+      padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+div#humanGenes_wrapper.dataTables_wrapper div.bottom,  div#drosoGenes_wrapper.dataTables_wrapper div.bottom {
+    margin: 0 auto;
+  width: 600px;
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+      padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+plotScoreRankImg {
+	margin-left:17px;
+	margin-right:17px;
+}
+/* http://stackoverflow.com/questions/7516647/adjusting-width-of-google-plus-1-button */
+[id^=___plusone] { width:72px !important; }
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables sorting icons
+ */
+
+.sorting_asc {
+	background: url('icons/sort_asc.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+}
+
+.sorting_desc {
+	background: url('icons/sort_desc.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+}
+
+.sorting {
+	background: url('icons/sort_both.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+}
+
+.sorting_asc_disabled {
+	background: url('icons/sort_asc_disabled.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+}
+
+.sorting_desc_disabled {
+	background: url('icons/sort_desc_disabled.png');
+    background-repeat:no-repeat;
+    background-position:right bottom;
+}
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * jQuerys tablesorter plugin sorting icons
+ */
+ th.header { 
+ 	background-image: url('icons/sort_both.png');  
+ 	background-position: right bottom;
+    background-repeat: no-repeat;
+    cursor: pointer;
+      
+  
+} 
+ th.headerSortUp { 
+    background-image: url('icons/sort_asc.png') ; 
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+th.headerSortDown { 
+    background-image: url('icons/sort_desc.png') ; 
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.FreqHitTable th {
+  overflow: hidden; /* this is what fixes the expansion */
+  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
+  white-space: nowrap;
+}
+#citeGenomeRNAi {
+    text-align: center;
+    display: block;
+	font-size: 12px;
+	padding: 2px 0 0 0;
+	color: #999;
+	padding-bottom: 15px;
+	padding-right: 15px;
+}
+
+#editDate {
+	width: 170px;
+}
+#page.contributePage div.calendar table {
+	width: 100%;
+}
+#page.contributePage div.calendar tr,
+#page.contributePage div.calendar td,
+#page.contributePage div.calendar th {
+	width: 100%;
+	padding: 1px;
+	border: 2.2px;
+}
+#page.contributePage div.calendar td {
+	width: 100%;
+	padding: 1px;
+	border: 2.2px;
+}
+#page.contributePage div.calendar th {
+	width: 100%;
+	padding: 1px;
+	border: 2.2px;
+}
+.mySubmit {
+	font-size: 13px;
+    background: none repeat scroll 0 0 #E5F3DC;
+    border: 1px solid #CCE8BD;
+    border-radius: 4px 4px 4px 4px;
+    color: #3F7D24;
+    display: block;
+    padding: 6px;
+    width: 150px;
+}
+.mySubmit:hover {
+				color: #fff;
+				background: #2A5518;
+				border: 1px solid #2A5518;
+}
+#searchFrameGene {
+   height: 170px;
+	
+}
+.searchButtons {
+	   background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 4px;
+    box-shadow: 3px 3px 3px #CCCCCC;
+    color: #333333;
+    font-size: 12px;
+    padding: 4px;
+     bottom: 8px;
+    position: absolute;
+    right: 8px;
+    width: 50px;
+}
+#clickGene {
+	bottom: 16px;
+}
+#clickRNAi {
+	bottom: 13px;
+}
+ #clickPhenotype {
+	 bottom: 13px;
+}
+
+.searchTextfield {
+	border:1px solid #D3D3D3;
+	  margin: 4px 0 5px;
+    padding: 3px;
+    width: 69%;
+#selectBoxesBack { /*reset styles*/
+	   width: auto;
+    min-width: auto;
+    display:auto;
+}
+#selectBoxesContinue { /*reset styles*/
+	   width: auto;
+       min-width: auto;
+       display:auto;
+}
