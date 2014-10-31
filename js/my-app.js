@@ -1,5 +1,4 @@
 angular.module('my-app', [])
-
 .controller('MyController', function($scope){
 //initalize domain model
        $scope.name = 'Oli';
