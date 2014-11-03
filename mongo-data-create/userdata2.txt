@@ -1,0 +1,7 @@
+[{'username' : 'test1','email' : 'test1@test.com','fullname' : 'Bob Smith','age' : 21,'location' : 'San Francisco1','gender' : 'Male'},
+{'username' : 'test2','email' : 'test2@test.com','fullname' : 'Bob2 Smith','age' : 22,'location' : 'San Francisco2','gender' : 'Male'},
+{'username' : 'test3','email' : 'test3@test.com','fullname' : 'Bob3 Smith','age' : 23,'location' : 'San Francisco3','gender' : 'Male'},
+{'username' : 'test4','email' : 'test4@test.com','fullname' : 'Bob4 Smith','age' : 24,'location' : 'San Francisco4','gender' : 'Male'},
+{'username' : 'test5','email' : 'test5@test.com','fullname' : 'Bob5 Smith','age' : 25,'location' : 'San Francisco5','gender' : 'Male'},
+{'username' : 'test6','email' : 'test6@test.com','fullname' : 'Bob6 Smith','age' : 26,'location' : 'San Francisco6','gender' : 'Male'},
+{'username' : 'test7','email' : 'test7@test.com','fullname' : 'Bob7 Smith','age' : 27,'location' : 'San Francisco7','gender' : 'Male'}]

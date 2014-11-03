@@ -1,5 +1,12 @@
-instruction for running this project
-clone the project
+instruction for installing this project 
+this is a MEAN stack application
+
+prequesites for MEAN (please install on your OS)
+* node.js (and npm)
+* mongodb
+* bower (a package manager for adding client-side javascript dependancies, e.g. for installing angularjs or jquery etc. to your project)
+
+first git clone the project
 change to project dir, type
 
 to load all dependent libraries (this will download packages from the internet) use
@@ -18,7 +25,7 @@ $ mongod --dbpath <project dir >/data
 
 import some testdata
 ```bash
-$ mongoimport -db genomernai -c usercollection --jsonArray < ./mongo-data/userdata.txt
+$ mongoimport -db genomernai -c usercollection --jsonArray < ./mongo-data-create/userdata.txt
 ```
 
 
