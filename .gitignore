@@ -32,4 +32,4 @@ node_modules
 index.html~
 js/.DS_Store
 
-genomernai-express-test/data/*
+*/mongo-data/*
