@@ -27,6 +27,7 @@ now install perl dbi and mysql (its important that you have mysql dynlibs and he
 $ perl -MCPAN -e shell
 cpan>install DBI
 cpan>install DBD::mysql
+cpan>install JSON
 cpan>q
 ```
 
