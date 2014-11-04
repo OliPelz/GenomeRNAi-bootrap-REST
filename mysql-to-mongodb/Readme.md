@@ -1,14 +1,12 @@
-the genomernai mysql to mongodb converter is heavily based on the following:
+the genomernai mysql to json converter (e.g. for mongodb) is heavily based on the following:
 
 http://tamas.io/converting-your-data-from-mysql-to-mongodb/
 
 but this was based on php, so I rewrote it for perl usage.
 
-How to use it
+How to use it, one need at least the mysql client plus development files (dyn libs)
 
-* install mysql server and dev 
-	* set up mysql root password, restrictions and security ...
-* import database from flatfiles
+* install mysql client and dev files for your OS
 * install perl mysql functionalities (DB::mysql) using cpan
 
 ```bash
@@ -23,71 +21,50 @@ cpan>q
 ```
 
 now install perl dbi and mysql (its important that you have mysql dynlibs and headers installed
+(please note on Mac Os X Mavericks there is a bug in finding proper dynlib, use this link to resolve problems
+before installing DBD::mysql: http://www.simon.me.uk/2014/703_installing_dbd_mysql_mavericks)
+
 ```bash
 $ perl -MCPAN -e shell
 cpan>install DBI
 cpan>install DBD::mysql
-cpan>install JSON
 cpan>q
 ```
 
 now everything is set up for conversion of mysql to mongodb tables!
 We need this basic script
 ```bash
-$ vi convert_sql_to_mongo.pl
+$ vi convert_sql_to_json.pl
 ```
+
+now run a conversion, here is the syntax:
+```bash
+usage ./convert_sql_to_mongo.pl <db user> <db name> <dp passwd> <db_host> <db_port> <output file> <sql statement>
+```
+
+e.g.
+```bash
+perl ./convert_sql_to_mongo.pl myDatabaseUsername myDatabase myHiddenPassword b110-intsrv 3306 \
+mongodb-import/dataBaseExport.json \
+"SELECT id, screenTitle, publicationTitle, authors, publicationYear, pubmedId, organismId, screenType, bioSource, \
+bioModel, assay, assayMethod, libraryManufacturer, library, scope, reagentType, scoreType, scoreCutoff, notes, \
+abstractText, imageBase, stableId, libraryId \
+FROM NewExternalExperiment"
+```
+
+now import into mongodb, open the daemon
 
 ```bash
-use DBI;
-use DBD::mysql;
-use strict;
-use warnings;
-
-#usage ./convert_sql_to_mongo.pl <db user> <db name> <dp passwd> <db_host> <db_port> <output file> <sql statement>
-#e.g. 
-#connect to database
-my ($db_user, $db_name, $db_pass, $db_host, $db_port) = ($ARGV[1], $ARGV[2],$ARGV[3],$ARGV[4],"3306");
-my $dbh = DBI->connect("DBI:mysql:$db_name;host=$db_host;port=$db_port","$db_user","$db_pass")
-or closeDBAndDie("Couldn't connect to database: ");
-
-my $sql_string = $ARGV[6];
-
-my $out_handle;
-open($out_handle, "<", $ARGV[5]) || die "cannot open output file ".$ARGV[5];
-
-###set encoding 'n stuff
-my $sth = $dbh->prepare("SET NAMES 'utf8'")
-or closeDBAndDie("Couldn't prepare statement");
-$sth->execute() or closeDBAndDie("Couldn't connect to database: ");
-$sth = $dbh->prepare("SET FOREIGN_KEY_CHECKS=0")
-or closeDBAndDie("Couldn't prepare statement");
-$sth->execute() or closeDBAndDie("Couldn't connect to database: ");
-
-$sth = $dbh->prepare("SELECT geneId,id from Gene") or closeDBAndDie("Couldn't prepare statement");
-$sth->execute() or closeDBAndDie("Couldn't connect to database: ");
-#my @result_rows;
-#while (my @arr = $sth->fetchrow_array) {
-#    push @result_rows, \@arr;
-#}
-#print $outhandle to_json(@resut_rows);
-
-while (my @arr = $sth->fetchrow_array) {
-    print $out_handle to_json(\@arr);
-}
-
-
-
-$dbh->disconnect;
-close $out_handle;
-
-
-
-#sub to close the database handle
-sub closeDBAndDie {
-my $param = $_[0];
-my $dbh = $_[1];
-$dbh->disconnect or warn $dbh->errstr;
-die $param;
-}
-
+mongod --dbpath=./mongo-data
 ```
+
+in another window mass import
+
+```bash
+for db in mongodb-import/*.json
+do
+   mongoimport --db myTestdatabase --collection `basename $db .json` $db --jsonArray
+done
+```
+
+
