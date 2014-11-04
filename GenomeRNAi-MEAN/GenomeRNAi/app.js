@@ -10,6 +10,7 @@ var Mongoose = require('mongoose');
 var db = Mongoose.createConnection('localhost', 'GenomeRNAi-v01');
 
 var routes = require('./routes/index');
+var expDet = require('./routes/expDetails');
 var users = require('./routes/users');
 
 var app = express();
@@ -26,7 +27,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+// all REST resources are marked by REST (my own convention)
 app.use('/', routes);
+app.use('/experimentDetailsREST', expDet);  
 app.use('/users', users);
 
 // catch 404 and forward to error handler

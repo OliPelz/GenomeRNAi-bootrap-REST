@@ -6,6 +6,11 @@ prequesites for MEAN (please install on your OS)
 * mongodb
 * bower (a package manager for adding client-side javascript dependancies, e.g. for installing angularjs or jquery etc. to your project)
 
+to run tests on the commandline install nodeunit
+```bash
+npm install -g nodeunit
+```
+
 first git clone the project
 change to project dir, type
 
@@ -28,4 +33,11 @@ import some testdata
 $ mongoimport -db genomernai -c usercollection --jsonArray < ./mongo-data-create/userdata.txt
 ```
 
+
+for testing use
+```bash
+$ npm install mocha --save-dev
+$ npm install expect.js --save-dev 
+$ npm install superagent --save-dev
+```
 
